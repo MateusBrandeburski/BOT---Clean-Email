@@ -1,25 +1,29 @@
 from functions_robo import MeuRobo
-from tkinter import Tk
+from front_tkinter import FrontEnd
 
-windows = Tk()
+
 robo = MeuRobo()
-
-windows.title('Robo - Clean Email')
-windows.mainloop()
-
-def pegar_posicao_mouse():
-
-    robo.pegar_posicao()
+front = FrontEnd()
 
 
-def bot():
+class Main():
 
-    while True:
-        robo.clicar(x=376, y=1277)
-        robo.clicar(x=408, y=1463)
-        robo.clicar(x=500, y=1276)
-        robo.aguardar(1.8)
-       
-               
-# bot()
+    def pegar_posicao_mouse(self):
+        robo.pegar_posicao()
+
+
+    def bot(self):
+        
+        while True:
+
+            robo.clicar(front.pegar_dado_1)
+            print(front.pegar_dado_1)
+
+            robo.clicar(front.pegar_dado_2)
+            robo.clicar(front.pegar_dado_3)
+
+            robo.aguardar(1.8)
+
+      
+
 
