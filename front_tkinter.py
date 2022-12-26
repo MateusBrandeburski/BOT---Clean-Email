@@ -67,39 +67,39 @@ class FrontEnd():
 
 
     def pegar_dado_1(self):
-        global posicao1
         posicao1 = caixa2_input.get()
-        print(posicao1) 
+        global x1
+        x1 = int(posicao1[2:5])
+        print(x1)
+        global y1
+        y1 = int(posicao1[9:14])
+        print(y1)
 
     def pegar_dado_2(self):
-        global posicao2
         posicao2 = caixa3_input.get()
-        print(posicao2)
-        
-    def pegar_dado_3(self):
-        global posicao3
-        posicao3 = caixa4_input.get()
-        print(posicao3)
+        global x2
+        x2 = int(posicao2[2:5])
+        global y2
+        y2 = int(posicao2[9:14])
 
+    def pegar_dado_3(self):
+        posicao3 = caixa4_input.get()
+        global x3
+        x3 = int(posicao3[2:5])
+        global y3
+        y3 = int(posicao3[9:14])
 
 
 class Main():
-
+    
     def bot():
-        
+   
         while True:
-            print(posicao1)
-            print(posicao2)
-            print(posicao3)
-            # robo.clicar(p1)
-            # robo.clicar(posicao2)
-            # robo.clicar(posicao3)
-            # robo.aguardar(1.8)
-            break
-
+            robo.clicar(x=x1,y=y1)
+            robo.clicar(x=x2, y=y2)
+            robo.clicar(x=x3, y=y3)
+            robo.aguardar(1.8)
       
-
-
 
 front_tk = FrontEnd()
 front_tk.frontend()
