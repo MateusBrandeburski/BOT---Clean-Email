@@ -90,6 +90,8 @@ class FrontEnd():
         y3 = int(posicao3[9:14])
 
 
+
+
 class Main():
     
     def bot():
