@@ -1,9 +1,29 @@
 import tkinter as tk
-from functions_robo import MeuRobo
+import pyautogui
+from time import sleep
 
 
+class MeuRobo():
 
-robo = MeuRobo()
+    def __init__(self):
+        pyautogui.PAUSE = 1
+
+    def aguardar(self,tempo):
+        sleep(tempo)
+
+    def clicar(self, x, y, botao="left"): #botao por padrão ele é left     
+        pyautogui.click(x=x,y=y, button=botao)
+    
+    def pegar_posicao(self):
+        # dá 5 segundos para pessoa posicionar o mouse
+        for i in range(0,5,1):
+            print(f"pegando posicao em {5 - i} segundos")
+            sleep(1)
+
+        # método que pega a posição do mouse
+        posicao = pyautogui.position()
+        print(posicao) 
+
 
 class FrontEnd(): 
 
@@ -17,11 +37,12 @@ class FrontEnd():
         windows.title('Robo - Clean Email')
 
         # botão que clica
-        text1 = tk.Label(text='Encontre a posição do seu mouse', fg='white', bg='green', width=50, height=10)
-        text1.grid(row=0, column=0)
+        # text1 = tk.Label(text='Encontre a posição do seu mouse', fg='white', bg='green', width=50, height=10)
+        # text1.grid(row=0, column=0)
         botao = tk.Button(text='Posição do Mouse', command=robo.pegar_posicao)
-        botao.grid(row=0, column=1)
+        botao.grid(row=0, columnspan=3)
         ## mensagem com as coordanadas aparece na tela.
+
         # text1 = tk.Label(text='{}'.format (robo.pegar_posicao))
         # text1.grid(row=4, column=0, columnspan=2)
 
@@ -60,7 +81,7 @@ class FrontEnd():
         botao3.grid(row=3, column=2)
 
         # iniciar bot
-        botao4 = tk.Button(text='Inicar Robo - Clean Email', command=Main.bot)
+        botao4 = tk.Button(text='Inicar Robo - Clean Email', command=Programa.bot)
         botao4.grid(row=4, columnspan=3)
 
         windows.mainloop()
@@ -92,7 +113,7 @@ class FrontEnd():
 
 
 
-class Main():
+class Programa():
     
     def bot():
    
@@ -101,7 +122,10 @@ class Main():
             robo.clicar(x=x2, y=y2)
             robo.clicar(x=x3, y=y3)
             robo.aguardar(1.8)
-      
 
+
+
+
+robo = MeuRobo()
 front_tk = FrontEnd()
 front_tk.frontend()
