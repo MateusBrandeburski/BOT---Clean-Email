@@ -90,25 +90,51 @@ class FrontEnd():
     def pegar_dado_1(self):
         posicao1 = caixa2_input.get()
         global x1
-        x1 = int(posicao1[2:5])
-        print(x1)
+        try:
+            x1 = int(posicao1[2:5])
+        except:
+            x1 = int(posicao1[2:6])  
         global y1
-        y1 = int(posicao1[9:14])
-        print(y1)
+        try:
+            y1 = int(posicao1[9:])
+        except:
+            y1 = int(posicao1[10:])        
+        print(x1, y1, ' -  posição do mouse adicionado com sucesso')
+
+# ---------------------------------------------------------- #
 
     def pegar_dado_2(self):
         posicao2 = caixa3_input.get()
         global x2
-        x2 = int(posicao2[2:5])
-        global y2
-        y2 = int(posicao2[9:14])
+        try:
+            x2 = int(posicao2[2:5])
+        except:
+            x2 = int(posicao2[2:6])
 
-    def pegar_dado_3(self):
-        posicao3 = caixa4_input.get()
+        global y2
+        try:
+            y2 = int(posicao2[9:])
+        except:
+            y2 = int(posicao2[10:])
+        print(x2, y2, ' -  posição do mouse adicionado com sucesso')
+
+# ---------------------------------------------------------- #
+
+    def pegar_dado_3(self):      
+        posicao3 = caixa4_input.get() 
         global x3
-        x3 = int(posicao3[2:5])
+        try:
+            x3 = int(posicao3[2:5])
+        
+        except:  
+            x3 = int(posicao3[2:6])  
+
         global y3
-        y3 = int(posicao3[9:14])
+        try:
+            y3 = int(posicao3[9:])
+        except:
+            y3 = int(posicao3[10:])
+        print(x3, y3, ' -  posição do mouse adicionado com sucesso')
 
 
 
